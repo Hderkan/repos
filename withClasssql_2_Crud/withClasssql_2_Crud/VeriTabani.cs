@@ -72,16 +72,20 @@ namespace withClasssql_2_Crud
             komut.ExecuteNonQuery();
             Kapat();
         }
-       //public void Kontrol(string tc,string ad,string soyad,string cinsiyet, string adres,string tel,string mail )
-       // {
-       //     if (tc != "" || ad != "" || soyad != "" || cinsiyet != "" || adres != "" || tel != "" || mail != "" ) 
-       //     {
+        public bool KontrolEt(params string[] e)
+        {
+            bool donus = false;
+            foreach (var item in e)
+            {
+                if (item=="")
+                {
+                    donus = true;
+                    break;
+                }
+            }
+            return donus;
+        }
 
-       //     }
-            
-            
-      //  }
-            
 
     }
 }
