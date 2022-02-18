@@ -15,6 +15,7 @@ namespace withClasssql_2_Crud
         SqlDataAdapter adaptor;
         string sorguCumlesi;
         DataTable dt;
+        
 
         //ilk olarak bir veri tabanı baglantısı yapacak method
         public SqlConnection Baglan()
@@ -38,9 +39,9 @@ namespace withClasssql_2_Crud
             }
             
         }
-        public DataTable HastalariListele()
+        public DataTable KayitListele(string sorguCumlesi)
         {
-            sorguCumlesi = $"select * from tblHastalar";
+            
             adaptor = new SqlDataAdapter(sorguCumlesi, Baglan());
             dt = new DataTable();
             adaptor.Fill(dt);
@@ -49,29 +50,36 @@ namespace withClasssql_2_Crud
 
 
         }
-        public void Ekle(string tcno,string ad,string soyad, string cinsiyet,string adres,string tel,string mail)
+        public void islem(string sorguCumlesi)
         {
-            sorguCumlesi = $"INSERT INTO tblHastalar(TcNo, Ad, SoyAd, Cinsiyet , Adres , Telefon ,mail)values('{tcno}', '{ad}', '{soyad}', '{cinsiyet}','{adres}','{tel}','{mail}')";
-            komut = new SqlCommand(sorguCumlesi, Baglan());
-            komut.ExecuteNonQuery();
-            Kapat();
-        }
-        public void Duzelt(string tcno, string ad, string soyad, string cinsiyet, string adres, string tel, string mail,string ID)
-        {
-            sorguCumlesi = $"UPDATE tblHastalar SET TcNo='{tcno}',Ad='{ad}',SoyAd ='{soyad}', Cinsiyet ='{cinsiyet}',Adres ='{adres}',Telefon ='{tel}',mail='{mail}' where ID ='{ID}'";
             komut = new SqlCommand(sorguCumlesi, Baglan());
             komut.ExecuteNonQuery();
             Kapat();
 
-        }   
-        public void Silme(string ID)
-        {
-            
-            sorguCumlesi = $"Delete tblHastalar where ID ={ID}";
-            komut = new SqlCommand(sorguCumlesi, Baglan());
-            komut.ExecuteNonQuery();
-            Kapat();
         }
+        //public void Ekle(string sorguCumlesi)
+        //{
+            
+        //    komut = new SqlCommand(sorguCumlesi, Baglan());
+        //    komut.ExecuteNonQuery();
+        //    Kapat();
+        //}
+        //public void Duzelt(string sorguCumlesi)
+        //{
+            
+        //    komut = new SqlCommand(sorguCumlesi, Baglan());
+        //    komut.ExecuteNonQuery();
+        //    Kapat();
+
+        //}   
+        //public void Silme(string sorguCumlesi)
+        //{
+            
+            
+        //    komut = new SqlCommand(sorguCumlesi, Baglan());
+        //    komut.ExecuteNonQuery();
+        //    Kapat();
+        //}
         public bool KontrolEt(params string[] e)
         {
             bool donus = false;

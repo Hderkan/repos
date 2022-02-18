@@ -10,10 +10,12 @@ using System.Windows.Forms;
 
 namespace withClasssql_2_Crud
 {
-    public partial class Liste : Form
+    public partial class FormHastalar : Form
     {
+        string sorguCumlesi;
+
         VeriTabani vt = new VeriTabani();
-        public Liste()
+        public FormHastalar()
         {
             InitializeComponent();
         }
@@ -37,16 +39,20 @@ namespace withClasssql_2_Crud
 
         private void Liste_Load(object sender, EventArgs e)
         {
+            sorguCumlesi = "select * from tblHastalar";
 
-            dgvHastalar.DataSource = vt.HastalariListele();
+            dgvHastalar.DataSource = vt.KayitListele(sorguCumlesi);
         }
 
         private void btnDuzelt_Click(object sender, EventArgs e)
         {
             string ID = dgvHastalar.CurrentRow.Cells[0].Value.ToString();
             string cinsiyet = cmbCinsiyet.Text == "Kadın" ? "K" : "E";
-            vt.Duzelt  (txtTc.Text, txtAd.Text, txtSoyad.Text, cinsiyet, txtAdres.Text, txtTel.Text, txtMail.Text,ID);
-            dgvHastalar.DataSource = vt.HastalariListele();
+            sorguCumlesi = $"UPDATE tblHastalar SET TcNo='{txtTc.Text}',Ad='{txtAd.Text}',SoyAd ='{txtSoyad.Text}', Cinsiyet ='{cinsiyet}',Adres ='{txtAdres.Text}',Telefon ='{txtTel.Text}',mail='{txtMail.Text}' where ID ='{ID}'";
+            vt.islem(sorguCumlesi);
+            dgvHastalar.DataSource = vt.KayitListele(sorguCumlesi);
+            
+            Doldur();
             temizle();
         }
 
@@ -58,10 +64,14 @@ namespace withClasssql_2_Crud
         private void btnSil_Click(object sender, EventArgs e)
         {
             string ID = dgvHastalar.CurrentRow.Cells[0].Value.ToString();
+            sorguCumlesi = $"Delete tblHastalar where ID ={ID}";
+            vt.islem(sorguCumlesi);
+            dgvHastalar.DataSource = vt.KayitListele(sorguCumlesi);
             
-            vt.Silme(ID);
-            dgvHastalar.DataSource = vt.HastalariListele();
+            Doldur();
             temizle();
+            
+            
         }
         void temizle()
         {
@@ -73,11 +83,23 @@ namespace withClasssql_2_Crud
             txtTel.ResetText();
             txtAdres.ResetText();
         }
+        void Doldur()
+        {
+            sorguCumlesi = " select * from  tblHastalar";
 
+            dgvHastalar.DataSource = vt.KayitListele(sorguCumlesi);
+        }
         private void Liste_FormClosing(object sender, FormClosingEventArgs e)
         {
             FormAna form = new FormAna();
             form.Show();
+            this.Hide();
+        }
+
+        private void btnYeniKayıt_Click(object sender, EventArgs e)
+        {
+            FormYeniKayit frmYeni = new FormYeniKayit();
+            frmYeni.Show();
             this.Hide();
         }
     }

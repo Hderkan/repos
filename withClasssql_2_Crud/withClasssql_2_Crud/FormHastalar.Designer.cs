@@ -1,7 +1,7 @@
 ﻿
 namespace withClasssql_2_Crud
 {
-    partial class Liste
+    partial class FormHastalar
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@ namespace withClasssql_2_Crud
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvHastalar = new System.Windows.Forms.DataGridView();
             this.btnDuzelt = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,17 +45,10 @@ namespace withClasssql_2_Crud
             this.txtTel = new System.Windows.Forms.TextBox();
             this.cmbCinsiyet = new System.Windows.Forms.ComboBox();
             this.btnSil = new System.Windows.Forms.Button();
+            this.dgvHastalar = new System.Windows.Forms.DataGridView();
+            this.btnYeniKayıt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHastalar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvHastalar
-            // 
-            this.dgvHastalar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHastalar.Location = new System.Drawing.Point(12, 21);
-            this.dgvHastalar.Name = "dgvHastalar";
-            this.dgvHastalar.Size = new System.Drawing.Size(767, 165);
-            this.dgvHastalar.TabIndex = 0;
-            this.dgvHastalar.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHastalar_CellEnter);
             // 
             // btnDuzelt
             // 
@@ -194,11 +186,31 @@ namespace withClasssql_2_Crud
             this.btnSil.UseVisualStyleBackColor = true;
             this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
-            // Liste
+            // dgvHastalar
+            // 
+            this.dgvHastalar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHastalar.Location = new System.Drawing.Point(12, 21);
+            this.dgvHastalar.Name = "dgvHastalar";
+            this.dgvHastalar.Size = new System.Drawing.Size(767, 165);
+            this.dgvHastalar.TabIndex = 0;
+            this.dgvHastalar.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHastalar_CellEnter);
+            // 
+            // btnYeniKayıt
+            // 
+            this.btnYeniKayıt.Location = new System.Drawing.Point(125, 372);
+            this.btnYeniKayıt.Name = "btnYeniKayıt";
+            this.btnYeniKayıt.Size = new System.Drawing.Size(75, 23);
+            this.btnYeniKayıt.TabIndex = 6;
+            this.btnYeniKayıt.Text = "Yeni Kayıt";
+            this.btnYeniKayıt.UseVisualStyleBackColor = true;
+            this.btnYeniKayıt.Click += new System.EventHandler(this.btnYeniKayıt_Click);
+            // 
+            // FormHastalar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnYeniKayıt);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.cmbCinsiyet);
             this.Controls.Add(this.txtTel);
@@ -216,8 +228,8 @@ namespace withClasssql_2_Crud
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDuzelt);
             this.Controls.Add(this.dgvHastalar);
-            this.Name = "Liste";
-            this.Text = "Liste";
+            this.Name = "FormHastalar";
+            this.Text = "Hastalar";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Liste_FormClosing);
             this.Load += new System.EventHandler(this.Liste_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHastalar)).EndInit();
@@ -227,8 +239,6 @@ namespace withClasssql_2_Crud
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvHastalar;
         private System.Windows.Forms.Button btnDuzelt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -245,5 +255,7 @@ namespace withClasssql_2_Crud
         private System.Windows.Forms.TextBox txtTel;
         private System.Windows.Forms.ComboBox cmbCinsiyet;
         private System.Windows.Forms.Button btnSil;
+        private System.Windows.Forms.DataGridView dgvHastalar;
+        private System.Windows.Forms.Button btnYeniKayıt;
     }
 }

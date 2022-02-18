@@ -12,6 +12,7 @@ namespace withClasssql_2_Crud
 {
     public partial class FormYeniKayit : Form
     {
+        string sorguCumlesi;
         VeriTabani vt = new VeriTabani();
         public FormYeniKayit()
         {
@@ -21,7 +22,8 @@ namespace withClasssql_2_Crud
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             string cinsiyet = cmbCinsiyet.Text == "Kadın" ? "K" : "E";
-            vt.Ekle(txtTc.Text, txtAd.Text, txtSoyad.Text, cinsiyet, txtAdres.Text, txtTel.Text, txtMail.Text);
+            sorguCumlesi = $"INSERT INTO tblHastalar values('{txtTc.Text}', '{txtAd.Text}', '{txtSoyad.Text}', '{cinsiyet}','{txtAdres.Text}','{txtTel.Text}','{txtMail.Text}')";
+            vt.islem(sorguCumlesi);
             temizle();
         }
         void temizle()
@@ -37,7 +39,7 @@ namespace withClasssql_2_Crud
 
         private void FormYeniKayit_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FormAna anaForm = new FormAna();
+            FormHastalar anaForm = new FormHastalar();
             anaForm.Show();
             this.Hide();
         }

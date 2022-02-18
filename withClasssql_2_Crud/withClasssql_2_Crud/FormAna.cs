@@ -13,33 +13,35 @@ namespace withClasssql_2_Crud
 {
     public partial class FormAna : Form
     {
+        string sorguCumlesi;
         
         VeriTabani vt = new VeriTabani();
         public FormAna()
         {
             InitializeComponent();
         }
-        void Doldur()
-        {
+        //void Doldur()
+        //{
+        //    sorguCumlesi = " select * from  tblHastalar";
 
-            dgvHastalar.DataSource = vt.HastalariListele();
-        }
+        //    dgvHastalar.DataSource = vt.KayitListele(sorguCumlesi);
+        //}
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Doldur();
+           // Doldur();
         }
 
-        private void btnYeniKayıt_Click(object sender, EventArgs e)
-        {
-            FormYeniKayit frmYeni = new FormYeniKayit();
-            frmYeni.Show();
-            this.Hide();
-        }
+        //private void btnYeniKayıt_Click(object sender, EventArgs e)
+        //{
+        //    //FormYeniKayit frmYeni = new FormYeniKayit();
+        //    //frmYeni.Show();
+        //    //this.Hide();
+        //}
 
         private void FormAna_Activated(object sender, EventArgs e)
         {
-            Doldur();
+            //Doldur();
         }
 
         private void FormAna_FormClosing(object sender, FormClosingEventArgs e)
@@ -47,10 +49,19 @@ namespace withClasssql_2_Crud
             Application.Exit();
         }
 
-        private void btnListe_Click(object sender, EventArgs e)
+       
+
+        private void btnHastalar_Click(object sender, EventArgs e)
         {
-            Liste liste = new Liste();
+            FormHastalar liste = new FormHastalar();
             liste.Show();
+            this.Hide();
+        }
+
+        private void tblBolumler_Click(object sender, EventArgs e)
+        {
+            FormBolumler formBolumler = new FormBolumler();
+            formBolumler.Show();
             this.Hide();
         }
     }
