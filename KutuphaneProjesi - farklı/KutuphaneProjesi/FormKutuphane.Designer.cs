@@ -195,6 +195,7 @@ namespace KutuphaneProjesi
             this.btnIptal.TabIndex = 7;
             this.btnIptal.Text = "İptal Et";
             this.btnIptal.UseVisualStyleBackColor = true;
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
             // 
             // btnOducVer
             // 
@@ -204,6 +205,7 @@ namespace KutuphaneProjesi
             this.btnOducVer.TabIndex = 7;
             this.btnOducVer.Text = "Odunc Ver";
             this.btnOducVer.UseVisualStyleBackColor = true;
+            this.btnOducVer.Click += new System.EventHandler(this.btnOducVer_Click);
             // 
             // btnTeslimAl
             // 
@@ -263,6 +265,7 @@ namespace KutuphaneProjesi
             this.dgvKitap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvKitap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKitap.Location = new System.Drawing.Point(261, 303);
+            this.dgvKitap.MultiSelect = false;
             this.dgvKitap.Name = "dgvKitap";
             this.dgvKitap.ReadOnly = true;
             this.dgvKitap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -292,6 +295,7 @@ namespace KutuphaneProjesi
             this.dgvUye.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUye.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUye.Location = new System.Drawing.Point(3, 303);
+            this.dgvUye.MultiSelect = false;
             this.dgvUye.Name = "dgvUye";
             this.dgvUye.ReadOnly = true;
             this.dgvUye.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -362,11 +366,13 @@ namespace KutuphaneProjesi
             this.dgvOdunc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOdunc.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvOdunc.Location = new System.Drawing.Point(3, 3);
+            this.dgvOdunc.MultiSelect = false;
             this.dgvOdunc.Name = "dgvOdunc";
             this.dgvOdunc.ReadOnly = true;
             this.dgvOdunc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOdunc.Size = new System.Drawing.Size(786, 201);
             this.dgvOdunc.TabIndex = 0;
+            this.dgvOdunc.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOdunc_CellEnter);
             // 
             // tabKitap
             // 

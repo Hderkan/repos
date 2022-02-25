@@ -17,7 +17,7 @@ namespace KutuphaneProjesi
         
         SqlDataAdapter adaaptor;
 
-        DataTable dt;
+        public DataTable dt;
         SqlCommand komut;
 
         public VeriTabani()
@@ -50,16 +50,42 @@ namespace KutuphaneProjesi
             }
         }
         //public DataTable Dt { get; set; }
-        public DataTable DT = new DataTable();
+        
         public void Islem()
         {
             sorguCumlesi = $"select * from {TableName} ";
             adaaptor = new SqlDataAdapter(sorguCumlesi, baglanti);
-            
-            adaaptor.Fill(DT);
+            dt = new DataTable();
+            adaaptor.Fill(dt);
                    
                       
         }
+        /// <summary>
+        /// verilen ıd ye göre silme islemi v
+        /// </summary>
+        /// <param name="ID"></param>
+        public void Islem(int ID)
+        {
+            Ac();
+            sorguCumlesi = $"Update {TableName} set Iptal=1 where ID={ID}";
+            komut = new SqlCommand(sorguCumlesi, baglanti);
+            komut.ExecuteNonQuery();
+           
+        Kapat();
 
+        }
+        public void Islem(Odunc yeniOdunc)
+        {
+            Ac();
+            sorguCumlesi = $"Insert into {TableName} (UyeID,KitapISBN,VerilisTarihi,Iptal) values (@UyeID,@KitapISBN,@VerilisTarihi,@Iptal)";
+            SqlCommand komut = new SqlCommand(sorguCumlesi,baglanti);
+            komut.Parameters.AddWithValue("@UyeID", yeniOdunc.UyeID);
+            komut.Parameters.AddWithValue("@KitapISBN", yeniOdunc.KitapISBN);
+            komut.Parameters.AddWithValue("@VerilisTarihi", yeniOdunc.VerilisTarihi.ToString("yyyy-MM-dd"));
+            komut.Parameters.AddWithValue("@Iptal", yeniOdunc.Iptal);
+            komut.ExecuteNonQuery();
+            Kapat();
+
+        }
     }
 }
