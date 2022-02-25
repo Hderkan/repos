@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0E46A2AA-5BC8-4E29-B12F-C51A170E86D8}</ProjectGuid>
+    <ProjectGuid>{7E7B6A3B-05C2-4774-BB19-51968CC3536C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>withClasssql_2_Crud</RootNamespace>
-    <AssemblyName>withClasssql_2_Crud</AssemblyName>
+    <RootNamespace>KutuphaneProjesi</RootNamespace>
+    <AssemblyName>KutuphaneProjesi</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,77 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="eklebolum.cs">
+    <Compile Include="FormKutuphane.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="eklebolum.Designer.cs">
-      <DependentUpon>eklebolum.cs</DependentUpon>
+    <Compile Include="FormKutuphane.Designer.cs">
+      <DependentUpon>FormKutuphane.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAna.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAna.Designer.cs">
-      <DependentUpon>FormAna.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormBolumler.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormBolumler.Designer.cs">
-      <DependentUpon>FormBolumler.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormDoktorlar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormDoktorlar.Designer.cs">
-      <DependentUpon>FormDoktorlar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormOnay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormOnay.Designer.cs">
-      <DependentUpon>FormOnay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormYeniKayit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormYeniKayit.Designer.cs">
-      <DependentUpon>FormYeniKayit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormHastalar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormHastalar.Designer.cs">
-      <DependentUpon>FormHastalar.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Kutuphane.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="randevu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="randevu.Designer.cs">
-      <DependentUpon>randevu.cs</DependentUpon>
-    </Compile>
     <Compile Include="VeriTabani.cs" />
-    <EmbeddedResource Include="eklebolum.resx">
-      <DependentUpon>eklebolum.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAna.resx">
-      <DependentUpon>FormAna.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormBolumler.resx">
-      <DependentUpon>FormBolumler.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormDoktorlar.resx">
-      <DependentUpon>FormDoktorlar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormOnay.resx">
-      <DependentUpon>FormOnay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormYeniKayit.resx">
-      <DependentUpon>FormYeniKayit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormHastalar.resx">
-      <DependentUpon>FormHastalar.cs</DependentUpon>
+    <EmbeddedResource Include="FormKutuphane.resx">
+      <DependentUpon>FormKutuphane.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,9 +68,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="randevu.resx">
-      <DependentUpon>randevu.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

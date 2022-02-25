@@ -31,6 +31,7 @@ namespace withClasssql_2_Crud
         {
             this.btnHastalar = new System.Windows.Forms.Button();
             this.tblBolumler = new System.Windows.Forms.Button();
+            this.btnRandevu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnHastalar
@@ -53,11 +54,22 @@ namespace withClasssql_2_Crud
             this.tblBolumler.UseVisualStyleBackColor = true;
             this.tblBolumler.Click += new System.EventHandler(this.tblBolumler_Click);
             // 
+            // btnRandevu
+            // 
+            this.btnRandevu.Location = new System.Drawing.Point(211, 171);
+            this.btnRandevu.Name = "btnRandevu";
+            this.btnRandevu.Size = new System.Drawing.Size(75, 23);
+            this.btnRandevu.TabIndex = 4;
+            this.btnRandevu.Text = "button1";
+            this.btnRandevu.UseVisualStyleBackColor = true;
+            this.btnRandevu.Click += new System.EventHandler(this.btnRandevu_Click);
+            // 
             // FormAna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRandevu);
             this.Controls.Add(this.tblBolumler);
             this.Controls.Add(this.btnHastalar);
             this.Name = "FormAna";
@@ -72,6 +84,7 @@ namespace withClasssql_2_Crud
         #endregion
         private System.Windows.Forms.Button btnHastalar;
         private System.Windows.Forms.Button tblBolumler;
+        private System.Windows.Forms.Button btnRandevu;
     }
 }
 

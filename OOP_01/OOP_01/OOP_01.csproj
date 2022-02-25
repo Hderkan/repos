@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0E46A2AA-5BC8-4E29-B12F-C51A170E86D8}</ProjectGuid>
+    <ProjectGuid>{6F2F5995-882E-45DE-88B3-B5A2F3A0E307}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>withClasssql_2_Crud</RootNamespace>
-    <AssemblyName>withClasssql_2_Crud</AssemblyName>
+    <RootNamespace>OOP_01</RootNamespace>
+    <AssemblyName>OOP_01</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,77 +46,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="eklebolum.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="eklebolum.Designer.cs">
-      <DependentUpon>eklebolum.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAna.cs">
+    <Compile Include="Form2.cs" />
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAna.Designer.cs">
-      <DependentUpon>FormAna.cs</DependentUpon>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormBolumler.cs">
+    <Compile Include="Form4.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBolumler.Designer.cs">
-      <DependentUpon>FormBolumler.cs</DependentUpon>
+    <Compile Include="Form4.Designer.cs">
+      <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDoktorlar.cs">
+    <Compile Include="myclasses.cs" />
+    <Compile Include="ozelDers.cs" />
+    <Compile Include="Poliformism2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDoktorlar.Designer.cs">
-      <DependentUpon>FormDoktorlar.cs</DependentUpon>
+    <Compile Include="Poliformism2.Designer.cs">
+      <DependentUpon>Poliformism2.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOnay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormOnay.Designer.cs">
-      <DependentUpon>FormOnay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormYeniKayit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormYeniKayit.Designer.cs">
-      <DependentUpon>FormYeniKayit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormHastalar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormHastalar.Designer.cs">
-      <DependentUpon>FormHastalar.cs</DependentUpon>
+    <Compile Include="Polimorphism.cs" />
+    <Compile Include="Polimorphism.Designer.cs">
+      <DependentUpon>Polimorphism.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="randevu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="randevu.Designer.cs">
-      <DependentUpon>randevu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VeriTabani.cs" />
-    <EmbeddedResource Include="eklebolum.resx">
-      <DependentUpon>eklebolum.cs</DependentUpon>
+    <Compile Include="Tipler.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAna.resx">
-      <DependentUpon>FormAna.cs</DependentUpon>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormBolumler.resx">
-      <DependentUpon>FormBolumler.cs</DependentUpon>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDoktorlar.resx">
-      <DependentUpon>FormDoktorlar.cs</DependentUpon>
+    <EmbeddedResource Include="Form4.resx">
+      <DependentUpon>Form4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOnay.resx">
-      <DependentUpon>FormOnay.cs</DependentUpon>
+    <EmbeddedResource Include="Poliformism2.resx">
+      <DependentUpon>Poliformism2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormYeniKayit.resx">
-      <DependentUpon>FormYeniKayit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormHastalar.resx">
-      <DependentUpon>FormHastalar.cs</DependentUpon>
+    <EmbeddedResource Include="Polimorphism.resx">
+      <DependentUpon>Polimorphism.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,9 +110,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="randevu.resx">
-      <DependentUpon>randevu.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

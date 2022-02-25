@@ -71,18 +71,15 @@ namespace withClasssql_2_Crud
         {
             txtArananHasta.Text = dgvHastalar.CurrentRow.Cells[1].Value.ToString();
         }
+        void kayde()
+        {
+
+        }
 
         private void btnkaydet_Click(object sender, EventArgs e)
         {
-            string bolumID = cbmBolumler.SelectedValue.ToString();
-            string hastaID = dgvHastalar.CurrentRow.Cells[0].Value.ToString();
-            string doktorID = ltbDoktorlar.SelectedValue.ToString();
-            string tarih = dtpHasta.Text;
-            string saat = dtpsaat.Text;
-            
-
-            string sorguCumlesi = $"insert into tblRandevular values ('{bolumID}','{hastaID}','{doktorID}','{tarih}','{saat}')";
-            vt.islem(sorguCumlesi);
+            kayde();
+            FormOnay onay = new FormOnay(
            
         }
     }

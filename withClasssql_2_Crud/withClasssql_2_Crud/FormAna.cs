@@ -64,5 +64,12 @@ namespace withClasssql_2_Crud
             formBolumler.Show();
             this.Hide();
         }
+
+        private void btnRandevu_Click(object sender, EventArgs e)
+        {
+            randevu ran = new randevu();
+            ran.Show();
+            this.Hide();
+        }
     }
 }
