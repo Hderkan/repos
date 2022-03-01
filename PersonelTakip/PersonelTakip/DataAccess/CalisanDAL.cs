@@ -163,15 +163,15 @@ namespace PersonelTakip.DataAccess
             }
         }
 
-        public bool Delete(string kosulCumlesi)
+        public bool Delete(string kosulCumlesi = "")
         {
             string sorguCumlesi =
-                $"Delete from tblCalisanlar @p1";
+                $"Delete from tblCalisanlar {kosulCumlesi}";
             try
             {
                 using (SqlCommand command = new SqlCommand(sorguCumlesi, SQLBaglanti.Baglanti)) 
                 {
-                    command.Parameters.AddWithValue("@p1", kosulCumlesi);
+                  //  command.Parameters.AddWithValue("@p1", kosulCumlesi);
                     SQLBaglanti.baglantiAc();
                     command.ExecuteNonQuery();
                 }

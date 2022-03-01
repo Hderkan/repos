@@ -57,6 +57,7 @@ namespace PersonelTakip
             this.btnBul = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlAraclar = new System.Windows.Forms.Panel();
+            this.ckbbenzer = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalisanlar)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnlAraclar.SuspendLayout();
@@ -65,10 +66,13 @@ namespace PersonelTakip
             // dgvCalisanlar
             // 
             this.dgvCalisanlar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCalisanlar.Location = new System.Drawing.Point(293, 3);
+            this.dgvCalisanlar.Location = new System.Drawing.Point(293, 0);
             this.dgvCalisanlar.Name = "dgvCalisanlar";
+            this.dgvCalisanlar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCalisanlar.Size = new System.Drawing.Size(511, 371);
             this.dgvCalisanlar.TabIndex = 0;
+            this.dgvCalisanlar.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCalisanlar_CellEnter);
+            this.dgvCalisanlar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCalisanlar_KeyPress);
             // 
             // label1
             // 
@@ -85,6 +89,7 @@ namespace PersonelTakip
             this.txtAd.Name = "txtAd";
             this.txtAd.Size = new System.Drawing.Size(100, 20);
             this.txtAd.TabIndex = 2;
+            this.txtAd.Tag = "Ad";
             // 
             // txtSoyad
             // 
@@ -92,6 +97,7 @@ namespace PersonelTakip
             this.txtSoyad.Name = "txtSoyad";
             this.txtSoyad.Size = new System.Drawing.Size(100, 20);
             this.txtSoyad.TabIndex = 4;
+            this.txtSoyad.Tag = "Soyad";
             // 
             // label2
             // 
@@ -105,9 +111,11 @@ namespace PersonelTakip
             // txtTcNo
             // 
             this.txtTcNo.Location = new System.Drawing.Point(78, 80);
+            this.txtTcNo.MaxLength = 11;
             this.txtTcNo.Name = "txtTcNo";
             this.txtTcNo.Size = new System.Drawing.Size(100, 20);
             this.txtTcNo.TabIndex = 6;
+            this.txtTcNo.Tag = "TcNo";
             // 
             // label3
             // 
@@ -130,9 +138,11 @@ namespace PersonelTakip
             // txtPersonelNo
             // 
             this.txtPersonelNo.Location = new System.Drawing.Point(92, 110);
+            this.txtPersonelNo.MaxLength = 5;
             this.txtPersonelNo.Name = "txtPersonelNo";
             this.txtPersonelNo.Size = new System.Drawing.Size(100, 20);
             this.txtPersonelNo.TabIndex = 6;
+            this.txtPersonelNo.Tag = "PersonelNo";
             // 
             // dtpDogumTarihi
             // 
@@ -140,6 +150,8 @@ namespace PersonelTakip
             this.dtpDogumTarihi.Name = "dtpDogumTarihi";
             this.dtpDogumTarihi.Size = new System.Drawing.Size(200, 20);
             this.dtpDogumTarihi.TabIndex = 7;
+            this.dtpDogumTarihi.Tag = "DogumTarihi";
+            this.dtpDogumTarihi.ValueChanged += new System.EventHandler(this.dtpDogumTarihi_ValueChanged);
             // 
             // label5
             // 
@@ -156,6 +168,8 @@ namespace PersonelTakip
             this.dtpIseBaslamaTarihi.Name = "dtpIseBaslamaTarihi";
             this.dtpIseBaslamaTarihi.Size = new System.Drawing.Size(200, 20);
             this.dtpIseBaslamaTarihi.TabIndex = 9;
+            this.dtpIseBaslamaTarihi.Tag = "IseBaslamaTarihi";
+            this.dtpIseBaslamaTarihi.ValueChanged += new System.EventHandler(this.dtpIseBaslamaTarihi_ValueChanged);
             // 
             // label6
             // 
@@ -169,10 +183,17 @@ namespace PersonelTakip
             // cmbDepartman
             // 
             this.cmbDepartman.FormattingEnabled = true;
+            this.cmbDepartman.Items.AddRange(new object[] {
+            "İnsan Kaynakları",
+            "Muhasebe",
+            "Teknik",
+            "Üretim",
+            "Satış"});
             this.cmbDepartman.Location = new System.Drawing.Point(79, 203);
             this.cmbDepartman.Name = "cmbDepartman";
             this.cmbDepartman.Size = new System.Drawing.Size(121, 21);
             this.cmbDepartman.TabIndex = 10;
+            this.cmbDepartman.Tag = "Departman";
             // 
             // label7
             // 
@@ -186,10 +207,16 @@ namespace PersonelTakip
             // cmbUnvan
             // 
             this.cmbUnvan.FormattingEnabled = true;
+            this.cmbUnvan.Items.AddRange(new object[] {
+            "Isçi",
+            "Ekip Lideri",
+            "Yönetici Yardımcısı",
+            "Yönetici"});
             this.cmbUnvan.Location = new System.Drawing.Point(80, 228);
             this.cmbUnvan.Name = "cmbUnvan";
             this.cmbUnvan.Size = new System.Drawing.Size(121, 21);
             this.cmbUnvan.TabIndex = 12;
+            this.cmbUnvan.Tag = "Unvan";
             // 
             // label8
             // 
@@ -203,10 +230,14 @@ namespace PersonelTakip
             // cmbDurumu
             // 
             this.cmbDurumu.FormattingEnabled = true;
+            this.cmbDurumu.Items.AddRange(new object[] {
+            "Aktif",
+            "Pasif"});
             this.cmbDurumu.Location = new System.Drawing.Point(79, 253);
             this.cmbDurumu.Name = "cmbDurumu";
             this.cmbDurumu.Size = new System.Drawing.Size(121, 21);
             this.cmbDurumu.TabIndex = 14;
+            this.cmbDurumu.Tag = "Durumu";
             // 
             // label9
             // 
@@ -225,6 +256,7 @@ namespace PersonelTakip
             this.btnKaydet.TabIndex = 15;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // btnGuncelle
             // 
@@ -243,6 +275,7 @@ namespace PersonelTakip
             this.btnSil.TabIndex = 15;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnTemizle
             // 
@@ -262,6 +295,7 @@ namespace PersonelTakip
             this.btnHepsiniSil.TabIndex = 15;
             this.btnHepsiniSil.Text = "Hepsini Sil";
             this.btnHepsiniSil.UseVisualStyleBackColor = true;
+            this.btnHepsiniSil.Click += new System.EventHandler(this.btnHepsiniSil_Click);
             // 
             // btnGetir
             // 
@@ -280,9 +314,11 @@ namespace PersonelTakip
             this.btnBul.TabIndex = 15;
             this.btnBul.Text = "Bul";
             this.btnBul.UseVisualStyleBackColor = true;
+            this.btnBul.Click += new System.EventHandler(this.btnBul_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.ckbbenzer);
             this.panel1.Controls.Add(this.btnKaydet);
             this.panel1.Controls.Add(this.btnGetir);
             this.panel1.Controls.Add(this.btnBul);
@@ -297,6 +333,7 @@ namespace PersonelTakip
             // 
             // pnlAraclar
             // 
+            this.pnlAraclar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlAraclar.Controls.Add(this.txtSoyad);
             this.pnlAraclar.Controls.Add(this.label1);
             this.pnlAraclar.Controls.Add(this.cmbDurumu);
@@ -320,6 +357,16 @@ namespace PersonelTakip
             this.pnlAraclar.Size = new System.Drawing.Size(288, 284);
             this.pnlAraclar.TabIndex = 17;
             // 
+            // ckbbenzer
+            // 
+            this.ckbbenzer.AutoSize = true;
+            this.ckbbenzer.Location = new System.Drawing.Point(110, 128);
+            this.ckbbenzer.Name = "ckbbenzer";
+            this.ckbbenzer.Size = new System.Drawing.Size(76, 17);
+            this.ckbbenzer.TabIndex = 16;
+            this.ckbbenzer.Text = "Benzer bul";
+            this.ckbbenzer.UseVisualStyleBackColor = true;
+            // 
             // FormAna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,6 +381,7 @@ namespace PersonelTakip
             this.Load += new System.EventHandler(this.FormAna_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalisanlar)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pnlAraclar.ResumeLayout(false);
             this.pnlAraclar.PerformLayout();
             this.ResumeLayout(false);
@@ -370,6 +418,7 @@ namespace PersonelTakip
         private System.Windows.Forms.Button btnBul;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlAraclar;
+        private System.Windows.Forms.CheckBox ckbbenzer;
     }
 }
 
