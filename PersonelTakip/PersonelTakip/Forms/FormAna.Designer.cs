@@ -56,8 +56,11 @@ namespace PersonelTakip
             this.btnGetir = new System.Windows.Forms.Button();
             this.btnBul = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rbnTam = new System.Windows.Forms.RadioButton();
+            this.rbnBenzer = new System.Windows.Forms.RadioButton();
+            this.rbnBasla = new System.Windows.Forms.RadioButton();
             this.pnlAraclar = new System.Windows.Forms.Panel();
-            this.ckbbenzer = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalisanlar)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnlAraclar.SuspendLayout();
@@ -266,6 +269,7 @@ namespace PersonelTakip
             this.btnGuncelle.TabIndex = 15;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnSil
             // 
@@ -305,6 +309,7 @@ namespace PersonelTakip
             this.btnGetir.TabIndex = 15;
             this.btnGetir.Text = "Getir";
             this.btnGetir.UseVisualStyleBackColor = true;
+            this.btnGetir.Click += new System.EventHandler(this.btnGetir_Click);
             // 
             // btnBul
             // 
@@ -318,7 +323,10 @@ namespace PersonelTakip
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.ckbbenzer);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.rbnTam);
+            this.panel1.Controls.Add(this.rbnBenzer);
+            this.panel1.Controls.Add(this.rbnBasla);
             this.panel1.Controls.Add(this.btnKaydet);
             this.panel1.Controls.Add(this.btnGetir);
             this.panel1.Controls.Add(this.btnBul);
@@ -330,6 +338,39 @@ namespace PersonelTakip
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(271, 148);
             this.panel1.TabIndex = 16;
+            // 
+            // rbnTam
+            // 
+            this.rbnTam.AutoSize = true;
+            this.rbnTam.Location = new System.Drawing.Point(177, 128);
+            this.rbnTam.Name = "rbnTam";
+            this.rbnTam.Size = new System.Drawing.Size(42, 17);
+            this.rbnTam.TabIndex = 18;
+            this.rbnTam.TabStop = true;
+            this.rbnTam.Text = "tam";
+            this.rbnTam.UseVisualStyleBackColor = true;
+            // 
+            // rbnBenzer
+            // 
+            this.rbnBenzer.AutoSize = true;
+            this.rbnBenzer.Location = new System.Drawing.Point(86, 127);
+            this.rbnBenzer.Name = "rbnBenzer";
+            this.rbnBenzer.Size = new System.Drawing.Size(57, 17);
+            this.rbnBenzer.TabIndex = 18;
+            this.rbnBenzer.TabStop = true;
+            this.rbnBenzer.Text = "benzer";
+            this.rbnBenzer.UseVisualStyleBackColor = true;
+            // 
+            // rbnBasla
+            // 
+            this.rbnBasla.AutoSize = true;
+            this.rbnBasla.Location = new System.Drawing.Point(0, 127);
+            this.rbnBasla.Name = "rbnBasla";
+            this.rbnBasla.Size = new System.Drawing.Size(50, 17);
+            this.rbnBasla.TabIndex = 17;
+            this.rbnBasla.TabStop = true;
+            this.rbnBasla.Text = "basla";
+            this.rbnBasla.UseVisualStyleBackColor = true;
             // 
             // pnlAraclar
             // 
@@ -357,15 +398,15 @@ namespace PersonelTakip
             this.pnlAraclar.Size = new System.Drawing.Size(288, 284);
             this.pnlAraclar.TabIndex = 17;
             // 
-            // ckbbenzer
+            // label10
             // 
-            this.ckbbenzer.AutoSize = true;
-            this.ckbbenzer.Location = new System.Drawing.Point(110, 128);
-            this.ckbbenzer.Name = "ckbbenzer";
-            this.ckbbenzer.Size = new System.Drawing.Size(76, 17);
-            this.ckbbenzer.TabIndex = 16;
-            this.ckbbenzer.Text = "Benzer bul";
-            this.ckbbenzer.UseVisualStyleBackColor = true;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(241, 16);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "label10";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // FormAna
             // 
@@ -418,7 +459,10 @@ namespace PersonelTakip
         private System.Windows.Forms.Button btnBul;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlAraclar;
-        private System.Windows.Forms.CheckBox ckbbenzer;
+        private System.Windows.Forms.RadioButton rbnTam;
+        private System.Windows.Forms.RadioButton rbnBenzer;
+        private System.Windows.Forms.RadioButton rbnBasla;
+        private System.Windows.Forms.Label label10;
     }
 }
 

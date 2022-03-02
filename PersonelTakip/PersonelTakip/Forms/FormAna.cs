@@ -17,6 +17,7 @@ namespace PersonelTakip
         CalisanDAL calisanDAL = new CalisanDAL();
         int secilenID = 0;
         Calisan calisan = null;
+        string orjinalpersonelno = null;
         public FormAna()
         {
             InitializeComponent();
@@ -98,13 +99,16 @@ namespace PersonelTakip
         {
             try
             {
+                
+               
+                //orjinalpersonelno = dgvCalisanlar.SelectedRows[0].Cells[4].Value.ToString();
                 secilenID = Convert.ToInt32(dgvCalisanlar.SelectedRows[0].Cells[0].Value);
                 txtAd.Text = dgvCalisanlar.SelectedRows[0].Cells[1].Value.ToString();
                 txtSoyad.Text = dgvCalisanlar.SelectedRows[0].Cells[2].Value.ToString();
                 txtTcNo.Text = dgvCalisanlar.SelectedRows[0].Cells[3].Value.ToString();
-                txtPersonelNo.Text = dgvCalisanlar.SelectedRows[0].Cells[4].Value.ToString();
+                 orjinalpersonelno = txtPersonelNo.Text = dgvCalisanlar.SelectedRows[0].Cells[4].Value.ToString();
                 dtpDogumTarihi.Value = Convert.ToDateTime(dgvCalisanlar.SelectedRows[0].Cells[5].Value.ToString());
-
+               
                 
                 dtpIseBaslamaTarihi.Value = Convert.ToDateTime(dgvCalisanlar.SelectedRows[0].Cells[6].Value.ToString());
                 cmbDepartman.Text = dgvCalisanlar.SelectedRows[0].Cells[7].Value.ToString();
@@ -222,17 +226,21 @@ namespace PersonelTakip
                 else
                 {
                     value = control.Text;
-                    if (ckbbenzer.Checked)
+                    if (rbnBenzer.Checked)
                     {
                         alanlar.Add($"{FieldName} like '%{value}%'");
                     }
+                    else if (rbnBasla.Checked)
+                        {
+                        alanlar.Add($"{FieldName} like '{value}%'");      
+                        }
                     else
                     {
-                        alanlar.Add($"{FieldName} = '{value}'");
+                        alanlar.Add($"{FieldName} like '{value}'");
                     }
 
 
-                    alanlar.Add($"{FieldName} like '%{value}%'");
+                    
                 }
 
                      
@@ -250,5 +258,70 @@ namespace PersonelTakip
             dgvCalisanlar.DataSource = calisanDAL.GetAll(CreateQuaryString());
         }
 
+        private void btnGetir_Click(object sender, EventArgs e)
+        {
+            Calisan calisan = new Calisan();
+            calisan = calisanDAL.GET(CreateQuaryString());
+            if (calisan!=null)
+            {
+                txtAd.Text = calisan.Ad;
+                txtSoyad.Text = calisan.Soyad;
+                txtTcNo.Text = calisan.TcNo;
+                txtPersonelNo.Text = calisan.PersonelNo;
+                dtpDogumTarihi.Format = DateTimePickerFormat.Long;
+                dtpDogumTarihi.Value = calisan.DogumTarihi;
+                dtpIseBaslamaTarihi.Format = DateTimePickerFormat.Long;
+                dtpIseBaslamaTarihi.Value = calisan.IseBaslamaTarihi;
+                cmbDepartman.Text = calisan.Departman;
+                cmbUnvan.Text = calisan.Unvan;
+                cmbDurumu.Text = calisan.Durumu;
+            }
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            if (secilenID == 0)
+            {
+                MessageBox.Show("Lütfen güncellemek istediginz kaydı seciniz ");
+            }
+            else if(!BlankControl())
+            {
+                MessageBox.Show("lütfen tüm alanları doldurunuz");
+            }
+            else
+            {
+                calisan = new Calisan
+
+
+
+                {
+                    Ad = txtAd.Text,
+                    Soyad = txtSoyad.Text,
+                    TcNo = txtTcNo.Text,
+                    PersonelNo = txtPersonelNo.Text,
+                    DogumTarihi = dtpDogumTarihi.Value,
+                    IseBaslamaTarihi = dtpIseBaslamaTarihi.Value,
+                    Departman = cmbDepartman.SelectedItem.ToString(),
+                    Unvan = cmbUnvan.SelectedItem.ToString(),
+                    Durumu = cmbDurumu.SelectedItem.ToString(),
+                    ID =secilenID
+                };
+                bool result = calisanDAL.Update(calisan, orjinalpersonelno);
+                if (result)
+                {
+                    Refresh();
+                    MessageBox.Show("güncelleme islemi basarıyla tamamlanmıstır");
+                }
+               
+
+                
+            }
+        }
     }
 }
