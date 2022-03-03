@@ -69,6 +69,7 @@ namespace PersonelTakip
         }
         void Aktar()
         {
+            
             secilenID = Convert.ToInt32(dgvCalisanlar.SelectedRows[0].Cells[0].Value);
             txtAd.Text = dgvCalisanlar.SelectedRows[0].Cells[1].Value.ToString();
             txtSoyad.Text = dgvCalisanlar.SelectedRows[0].Cells[2].Value.ToString();
@@ -76,8 +77,8 @@ namespace PersonelTakip
             txtPersonelNo.Text = dgvCalisanlar.SelectedRows[0].Cells[4].Value.ToString();
             dtpDogumTarihi.Value = Convert.ToDateTime(dgvCalisanlar.SelectedRows[0].Cells[5].Value.ToString());
             dtpIseBaslamaTarihi.Value = Convert.ToDateTime(dgvCalisanlar.SelectedRows[0].Cells[6].Value.ToString());
-            cmbDepartman.Text = dgvCalisanlar.SelectedRows[0].Cells[7].Value.ToString();
-            cmbUnvan.Text = dgvCalisanlar.SelectedRows[0].Cells[8].Value.ToString();
+            cmbDepartmanID.Text =dgvCalisanlar.SelectedRows[0].Cells[7].Value.ToString();
+            cmbUnvanID.Text = dgvCalisanlar.SelectedRows[0].Cells[8].Value.ToString();
             cmbDurumu.Text = dgvCalisanlar.SelectedRows[0].Cells[9].Value.ToString();
 
             
@@ -111,8 +112,8 @@ namespace PersonelTakip
                
                 
                 dtpIseBaslamaTarihi.Value = Convert.ToDateTime(dgvCalisanlar.SelectedRows[0].Cells[6].Value.ToString());
-                cmbDepartman.Text = dgvCalisanlar.SelectedRows[0].Cells[7].Value.ToString();
-                cmbUnvan.Text = dgvCalisanlar.SelectedRows[0].Cells[8].Value.ToString();
+                cmbDepartmanID.Text = dgvCalisanlar.SelectedRows[0].Cells[7].Value.ToString();
+                cmbUnvanID.Text = dgvCalisanlar.SelectedRows[0].Cells[8].Value.ToString();
                 cmbDurumu.Text = dgvCalisanlar.SelectedRows[0].Cells[9].Value.ToString();
             }
             catch (Exception)
@@ -138,8 +139,8 @@ namespace PersonelTakip
                     PersonelNo = txtPersonelNo.Text,
                     DogumTarihi = dtpDogumTarihi.Value,
                     IseBaslamaTarihi = dtpIseBaslamaTarihi.Value,
-                    Departman = cmbDepartman.SelectedItem.ToString(),
-                    Unvan = cmbUnvan.SelectedItem.ToString(),
+                    Departman = "1",
+                    Unvan = "1",
                     Durumu = cmbDurumu.SelectedItem.ToString()
                 };
                 bool result = calisanDAL.Insert(calisan);
@@ -272,8 +273,8 @@ namespace PersonelTakip
                 dtpDogumTarihi.Value = calisan.DogumTarihi;
                 dtpIseBaslamaTarihi.Format = DateTimePickerFormat.Long;
                 dtpIseBaslamaTarihi.Value = calisan.IseBaslamaTarihi;
-                cmbDepartman.Text = calisan.Departman;
-                cmbUnvan.Text = calisan.Unvan;
+                cmbDepartmanID.Text = calisan.Departman.ToString();
+                cmbUnvanID.Text = calisan.Unvan.ToString();
                 cmbDurumu.Text = calisan.Durumu;
             }
 
@@ -307,8 +308,8 @@ namespace PersonelTakip
                     PersonelNo = txtPersonelNo.Text,
                     DogumTarihi = dtpDogumTarihi.Value,
                     IseBaslamaTarihi = dtpIseBaslamaTarihi.Value,
-                    Departman = cmbDepartman.SelectedItem.ToString(),
-                    Unvan = cmbUnvan.SelectedItem.ToString(),
+                    Departman = "1",
+                    Unvan = "1",
                     Durumu = cmbDurumu.SelectedItem.ToString(),
                     ID =secilenID
                 };

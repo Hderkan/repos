@@ -25,7 +25,7 @@ namespace PersonelTakip.DataAccess
             try
             {
                 // buraya yazacagımız islemleri yapmayı dene sorun yoksa calıstır
-                using (SqlCommand command = new SqlCommand($"Select * from tblCalisanlar {kosulCumlesi}", SQLBaglanti.Baglanti))
+                using (SqlCommand command = new SqlCommand($"Select * from vCalisanlar {kosulCumlesi}", SQLBaglanti.Baglanti))
                 {
                     //using adlı yaratılan nesme sadece command adlı nesle ,, bu nesneninn yok edilmesini garbage collecter insiyatifine brakmamıs olduk
                     SQLBaglanti.baglantiAc();
@@ -85,7 +85,7 @@ namespace PersonelTakip.DataAccess
 
             else
             {
-                string sorguCumlesi = $"Insert into tblCalisanlar (Ad,Soyad,TcNo,PersonelNo,DogumTarihi,IseBaslamaTarihi,Departman,Unvan,Durumu) Values" +
+                string sorguCumlesi = $"Insert into tblCalisan (Ad,Soyad,TcNo,PersonelNo,DogumTarihi,IseBaslamaTarihi,DepartmanID,UnvanID,Durumu) Values" +
                $"(@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9)";
                 try
                 {
@@ -134,9 +134,9 @@ namespace PersonelTakip.DataAccess
             else
             {
                 string sorguCumlesi =
-                $"UPDATE tblCalisanlar SET Ad = @p1, Soyad = @p2, TcNo = @p3," +
+                $"UPDATE tblCalisan SET Ad = @p1, Soyad = @p2, TcNo = @p3," +
                 $"PersonelNo = @p4, DogumTarihi = @p5, IseBaslamaTarihi = @p6, " +
-                $"Departman = @p7, Unvan = @p8, Durumu = @p9 WHERE ID = @p10";
+                $"DepartmanID = @p7, UnvanID = @p8, Durumu = @p9 WHERE ID = @p10";
                 try
                 {
                     using (SqlCommand command = new SqlCommand(sorguCumlesi, SQLBaglanti.Baglanti))
@@ -171,7 +171,7 @@ namespace PersonelTakip.DataAccess
 
         public bool Delete(int id)
         {
-            string sorguCumlesi = $"Delete from tblCalisanlar where ID = @p1";
+            string sorguCumlesi = $"Delete from tblCalisan where ID = @p1";
             try
             {
                 using(SqlCommand command = new SqlCommand(sorguCumlesi,SQLBaglanti.Baglanti))
@@ -197,7 +197,7 @@ namespace PersonelTakip.DataAccess
         public bool Delete(string kosulCumlesi = "")
         {
             string sorguCumlesi =
-                $"Delete from tblCalisanlar {kosulCumlesi}";
+                $"Delete from tblCalisan {kosulCumlesi}";
             try
             {
                 using (SqlCommand command = new SqlCommand(sorguCumlesi, SQLBaglanti.Baglanti)) 
@@ -222,7 +222,7 @@ namespace PersonelTakip.DataAccess
             try
             {
                 int adet = 0;
-                using (SqlCommand command = new SqlCommand($"Select COUNT(*) FROM tblCalisanlar {kosulCumlesi}",SQLBaglanti.Baglanti))
+                using (SqlCommand command = new SqlCommand($"Select COUNT(*) FROM tblCalisan {kosulCumlesi}",SQLBaglanti.Baglanti))
                 {
                     SQLBaglanti.baglantiAc();
                     adet =Convert.ToInt32 (command.ExecuteScalar());
@@ -237,7 +237,7 @@ namespace PersonelTakip.DataAccess
                 else if (adet == 1)
                                                    
                 {
-                    using (SqlCommand command = new SqlCommand($"Select * from tblCalisanlar {kosulCumlesi}",SQLBaglanti.Baglanti))
+                    using (SqlCommand command = new SqlCommand($"Select * from tblCalisan {kosulCumlesi}",SQLBaglanti.Baglanti))
                     {
                         using (SqlDataReader okuyucu = command.ExecuteReader())
                         {
@@ -252,8 +252,8 @@ namespace PersonelTakip.DataAccess
                                     PersonelNo = okuyucu["PersonelNo"].ToString(),
                                     DogumTarihi = Convert.ToDateTime(okuyucu["DogumTarihi"].ToString()),
                                     IseBaslamaTarihi = Convert.ToDateTime(okuyucu["IseBaslamaTarihi"].ToString()),
-                                    Departman = okuyucu["Departman"].ToString(),
-                                    Unvan = okuyucu["Unvan"].ToString(),
+                                    Departman =okuyucu["Departman"].ToString(),
+                                    Unvan =  okuyucu["Unvan"].ToString(),
                                     Durumu = okuyucu["Durumu"].ToString()
 
 
@@ -289,7 +289,7 @@ namespace PersonelTakip.DataAccess
             {
                 
                 
-                using (SqlCommand command = new SqlCommand($"Select COUNT(*) FROM tblCalisanlar {kosulCumlesi}", SQLBaglanti.Baglanti))
+                using (SqlCommand command = new SqlCommand($"Select COUNT(*) FROM tblCalisan {kosulCumlesi}", SQLBaglanti.Baglanti))
                 {
                     SQLBaglanti.baglantiAc();
 
@@ -320,7 +320,7 @@ namespace PersonelTakip.DataAccess
         //    try
         //    {
         //        int adet = 0;
-        //        using (SqlCommand command = new SqlCommand($"Select COUNT(*) FROM tblCalisanlar {kosulCumlesi}", SQLBaglanti.Baglanti))
+        //        using (SqlCommand command = new SqlCommand($"Select COUNT(*) FROM tblCalisan {kosulCumlesi}", SQLBaglanti.Baglanti))
         //        {
         //            SQLBaglanti.baglantiAc();
         //            adet = Convert.ToInt32(command.ExecuteScalar());
@@ -335,7 +335,7 @@ namespace PersonelTakip.DataAccess
         //        else if (adet == 0)
 
         //        {
-        //            using (SqlCommand command = new SqlCommand($"Select * from tblCalisanlar {kosulCumlesi}", SQLBaglanti.Baglanti))
+        //            using (SqlCommand command = new SqlCommand($"Select * from tblCalisan {kosulCumlesi}", SQLBaglanti.Baglanti))
         //            {
         //                using (SqlDataReader okuyucu = command.ExecuteReader())
         //                {
@@ -350,8 +350,8 @@ namespace PersonelTakip.DataAccess
         //                            PersonelNo = okuyucu["PersonelNo"].ToString(),
         //                            DogumTarihi = Convert.ToDateTime(okuyucu["DogumTarihi"].ToString()),
         //                            IseBaslamaTarihi = Convert.ToDateTime(okuyucu["IseBaslamaTarihi"].ToString()),
-        //                            Departman = okuyucu["Departman"].ToString(),
-        //                            Unvan = okuyucu["Unvan"].ToString(),
+        //                            DepartmanID = okuyucu["DepartmanID"].ToString(),
+        //                            UnvanID = okuyucu["UnvanID"].ToString(),
         //                            Durumu = okuyucu["Durumu"].ToString()
 
 

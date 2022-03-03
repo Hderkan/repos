@@ -49,6 +49,9 @@
   <ItemGroup>
     <Compile Include="DataAccess\CalisanDAL.cs" />
     <Compile Include="Entities\Calisan.cs" />
+    <Compile Include="Entities\Departman.cs" />
+    <Compile Include="Entities\IBaseEntity.cs" />
+    <Compile Include="Entities\Unvan.cs" />
     <Compile Include="Forms\FormAna.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -42,9 +42,9 @@ namespace PersonelTakip
             this.label5 = new System.Windows.Forms.Label();
             this.dtpIseBaslamaTarihi = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.cmbDepartman = new System.Windows.Forms.ComboBox();
+            this.cmbDepartmanID = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbUnvan = new System.Windows.Forms.ComboBox();
+            this.cmbUnvanID = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbDurumu = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -183,20 +183,20 @@ namespace PersonelTakip
             this.label6.TabIndex = 8;
             this.label6.Text = "Baslama T";
             // 
-            // cmbDepartman
+            // cmbDepartmanID
             // 
-            this.cmbDepartman.FormattingEnabled = true;
-            this.cmbDepartman.Items.AddRange(new object[] {
+            this.cmbDepartmanID.FormattingEnabled = true;
+            this.cmbDepartmanID.Items.AddRange(new object[] {
             "İnsan Kaynakları",
             "Muhasebe",
             "Teknik",
             "Üretim",
             "Satış"});
-            this.cmbDepartman.Location = new System.Drawing.Point(79, 203);
-            this.cmbDepartman.Name = "cmbDepartman";
-            this.cmbDepartman.Size = new System.Drawing.Size(121, 21);
-            this.cmbDepartman.TabIndex = 10;
-            this.cmbDepartman.Tag = "Departman";
+            this.cmbDepartmanID.Location = new System.Drawing.Point(79, 203);
+            this.cmbDepartmanID.Name = "cmbDepartmanID";
+            this.cmbDepartmanID.Size = new System.Drawing.Size(121, 21);
+            this.cmbDepartmanID.TabIndex = 10;
+            this.cmbDepartmanID.Tag = "DepartmanID";
             // 
             // label7
             // 
@@ -205,21 +205,21 @@ namespace PersonelTakip
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 13);
             this.label7.TabIndex = 8;
-            this.label7.Text = "Departman";
+            this.label7.Text = "DepartmanID";
             // 
-            // cmbUnvan
+            // cmbUnvanID
             // 
-            this.cmbUnvan.FormattingEnabled = true;
-            this.cmbUnvan.Items.AddRange(new object[] {
+            this.cmbUnvanID.FormattingEnabled = true;
+            this.cmbUnvanID.Items.AddRange(new object[] {
             "Isçi",
             "Ekip Lideri",
             "Yönetici Yardımcısı",
             "Yönetici"});
-            this.cmbUnvan.Location = new System.Drawing.Point(80, 228);
-            this.cmbUnvan.Name = "cmbUnvan";
-            this.cmbUnvan.Size = new System.Drawing.Size(121, 21);
-            this.cmbUnvan.TabIndex = 12;
-            this.cmbUnvan.Tag = "Unvan";
+            this.cmbUnvanID.Location = new System.Drawing.Point(80, 228);
+            this.cmbUnvanID.Name = "cmbUnvanID";
+            this.cmbUnvanID.Size = new System.Drawing.Size(121, 21);
+            this.cmbUnvanID.TabIndex = 12;
+            this.cmbUnvanID.Tag = "UnvanID";
             // 
             // label8
             // 
@@ -228,7 +228,7 @@ namespace PersonelTakip
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 13);
             this.label8.TabIndex = 11;
-            this.label8.Text = "Unvan";
+            this.label8.Text = "UnvanID";
             // 
             // cmbDurumu
             // 
@@ -381,11 +381,11 @@ namespace PersonelTakip
             this.pnlAraclar.Controls.Add(this.txtAd);
             this.pnlAraclar.Controls.Add(this.label9);
             this.pnlAraclar.Controls.Add(this.label2);
-            this.pnlAraclar.Controls.Add(this.cmbUnvan);
+            this.pnlAraclar.Controls.Add(this.cmbUnvanID);
             this.pnlAraclar.Controls.Add(this.label3);
             this.pnlAraclar.Controls.Add(this.label8);
             this.pnlAraclar.Controls.Add(this.label4);
-            this.pnlAraclar.Controls.Add(this.cmbDepartman);
+            this.pnlAraclar.Controls.Add(this.cmbDepartmanID);
             this.pnlAraclar.Controls.Add(this.label5);
             this.pnlAraclar.Controls.Add(this.dtpIseBaslamaTarihi);
             this.pnlAraclar.Controls.Add(this.txtTcNo);
@@ -444,9 +444,9 @@ namespace PersonelTakip
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpIseBaslamaTarihi;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbDepartman;
+        private System.Windows.Forms.ComboBox cmbDepartmanID;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbUnvan;
+        private System.Windows.Forms.ComboBox cmbUnvanID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbDurumu;
         private System.Windows.Forms.Label label9;
