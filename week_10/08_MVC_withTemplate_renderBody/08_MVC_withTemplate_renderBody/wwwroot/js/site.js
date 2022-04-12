@@ -4,11 +4,19 @@
 // Write your JavaScript code.
 
 
-$(function () {                       //run when the DOM is ready
-    $("a").mouseenter(function () {  //use a class, since your ID gets mangled
-        event.preventDefault();
-        $(this).addClass("active");      //add the class to the clicked element
-    });
-});
 
- 
+
+$(document).ready(function() {
+
+    $("li a").each(function () {
+        console.log()
+
+        if ($(this).attr("href") == window.location.pathname) {
+            console.log($(this).attr("href"))
+        $(this).addClass("active")
+            }
+    })
+
+})
+
+

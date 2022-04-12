@@ -18,7 +18,7 @@ a {
   border-color: #1861ac;
 }
 .active {
-    background-color: red !important;
+    background-color: red;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
