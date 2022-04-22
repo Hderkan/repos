@@ -1,0 +1,26 @@
+@model EF_CodeFirst.Models.Entities.Category
+
+
+@{
+    ViewData["Title"] = "Delete";
+
+}
+
+<h1 class="display-3">kategoriyi sil</h1>
+
+<div>
+    <h4>kategori Türü</h4>
+    <h5>kategori ID: </h5>
+    <p>@Model.CategoryId</p>
+    <h5>kategori adı:</h5>
+    <p>@Model.CategoryName</p>
+    <h5>kategori acıklaması:</h5>
+    <p>@Model.CategoryDescription</p>
+    <h5>kategori durumu:</h5>
+    <p>@Model.IsDeleted</p>
+</div>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="CategoryId">
+    <input type="submit" value="kategori Sil" class="btn btn-sm btn-danger">
+</form>
+<a asp-action="Index">Kitap kategoriye dön</a>

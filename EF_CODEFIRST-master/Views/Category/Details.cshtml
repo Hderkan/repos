@@ -1,0 +1,25 @@
+@model EF_CodeFirst.Models.Entities.Category
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Kitap Türü Detayları</h1>
+
+<div>
+    <h4>Kitap Türü</h4>
+    <h5>kategory ID: </h5>
+    <p>@Model.CategoryId</p>
+    <h5>kategory adı:</h5>
+    <p>@Model.CategoryName</p>
+    <h5>Kategory acıklama:</h5>
+    <p>@Model.CategoryDescription</p>
+    <h5>Kategory durumu:</h5>
+    <p>@Model.IsDeleted</p>
+    
+
+</div>
+<a asp-action="Index">Kitap Türlerine dön</a>
+
+
+

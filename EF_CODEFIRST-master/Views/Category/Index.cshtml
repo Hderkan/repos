@@ -1,0 +1,37 @@
+@model List<EF_CodeFirst.Models.Entities.Category>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a asp-action="Create">Yeni Kitap kategori</a>
+<table class="table table-light w-50">
+    <thead>
+        <tr>
+            <th>Kitap Türü Id</th>
+            <th>Kitap Türü</th>
+            <th>Yapılacak İşlem</th>
+            <th>Yapılacak İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.CategoryId</td>
+                <td>@c.CategoryName</td>
+                <td>@c.CategoryDescription</td>
+                <td>@c.IsDeleted</td>
+                
+
+
+                <td>
+                    <a class="btn btn-sm btn-success" asp-action="Details" asp-route-id="@c.CategoryId">Detaylar</a>
+                    <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@c.CategoryId">Düzenle</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@c.CategoryId">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
