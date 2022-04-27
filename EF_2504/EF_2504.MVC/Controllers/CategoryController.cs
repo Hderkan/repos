@@ -1,25 +1,20 @@
-﻿
+﻿using EF_2504.DAL.Concrete.EF;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace EF_2504.MVC.Controllers
 {
-    public class HomeController : Controller
+    public class CategoryController : Controller
     {
-
-       
-
         public IActionResult Index()
         {
-            return View();
+            var _categories = new EFCategoryDAL();
+            
+            return View(_categories.GetAll());
+
         }
-
-      
-
     }
 }

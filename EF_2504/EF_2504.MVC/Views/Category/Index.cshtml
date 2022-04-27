@@ -1,0 +1,33 @@
+﻿
+
+
+@model List<Category>
+
+@{ 
+    ViewData["Title"] = "Categories";
+
+}
+
+<h1 class="display-4"> Category List</h1>
+<hr />
+
+<table >
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>description</td>
+
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.CategoryId</td>
+    <td>@item.CategoryName</td>
+    <td>@item.CategoryDescription</td>
+
+</tr>
+    }
+</table>
+
