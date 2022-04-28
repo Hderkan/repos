@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Sales.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,15 @@ namespace Sales.Models.Concrete
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
 
+       
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Name =ConnectionStrings:SalesConn");
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("appsettings.json")
+                .Build();
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("SalesConn"));
         }
 
     }
