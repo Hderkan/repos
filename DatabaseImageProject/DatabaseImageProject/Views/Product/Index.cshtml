@@ -1,0 +1,57 @@
+﻿@model List< DatabaseImageProject.Models.Entities.Product>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<p>
+    <a  asp-action="Create" >Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                id
+            </th>
+            <th>
+                name
+            </th>
+            <th>
+                price
+            </th>
+            <th>
+                img
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <img class="card-img-top" src="@item.ProductId" style="max-height:60px; max-width:60px;" alt="Card image cap">
+            </td>
+            <td>
+                @item.ProductName
+            </td>
+            <td>
+                @item.ProductPrice
+            </td>
+
+            <td>
+                <img class="card-img-top" src="@item.ProductImage" style="max-height:60px; max-width:60px;" alt="Card image cap">
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductId">edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
