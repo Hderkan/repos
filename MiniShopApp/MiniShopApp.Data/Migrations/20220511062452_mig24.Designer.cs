@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MiniShopApp.Data.Concrete.EFCore;
+using MiniShopApp.Data.Concrete.EfCore;
 
 namespace MiniShopApp.Data.Migrations
 {
     [DbContext(typeof(MiniShopContext))]
-    [Migration("20220509111425_mig1")]
-    partial class mig1
+    [Migration("20220511062452_mig24")]
+    partial class mig24
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

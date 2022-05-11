@@ -1,8 +1,25 @@
-﻿@{
+﻿@model List<Product>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <div class="col-md-2">
+        @* Buraya kategoriler gelecek *@
+        @await Component.InvokeAsync("Categories")
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            @foreach (var product in Model)
+            {
+               
+
+                <div class="col-md-3">
+                @await Html.PartialAsync("_Product", product)
+                    
+
+                </div>
+            }
+        </div>
+    </div>
 </div>

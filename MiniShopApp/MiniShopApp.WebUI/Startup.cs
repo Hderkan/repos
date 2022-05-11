@@ -4,7 +4,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MiniShopApp.Data.Concrete.EFCore;
+using MiniShopApp.Business.Abstract;
+using MiniShopApp.Business.Concrete;
+using MiniShopApp.Data.Abstract;
+using MiniShopApp.Data.Concrete.EfCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +27,12 @@ namespace MiniShopApp.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IProductRepository, EfCoreProductRepository>();
+            services.AddScoped<ICategoryRepository, EfCoreCategoryRepository>();
+            services.AddScoped<IProductService, ProductManager>();
+            //Proje boyunca ICategoryService çaðrýldýðýnda, CategoryManager'i kullan.
+            services.AddScoped<ICategoryService, CategoryManager>();
+            //Projemizin MVC yapýsýnda olmasýný saðlar.
             services.AddControllersWithViews();
         }
 
@@ -33,8 +42,6 @@ namespace MiniShopApp.WebUI
             if (env.IsDevelopment())
             {
                 SeedDatabase.Seed();
-
-
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -52,6 +59,10 @@ namespace MiniShopApp.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "products", pattern:"products/{category?}",defaults:new {controller="MiniShop",action="List"}
+                    );
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

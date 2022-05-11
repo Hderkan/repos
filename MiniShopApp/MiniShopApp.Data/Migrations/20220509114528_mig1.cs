@@ -31,9 +31,9 @@ namespace MiniShopApp.Data.Migrations
                     Price = table.Column<decimal>(type: "TEXT", nullable: true),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
                     ImageUrl = table.Column<string>(type: "TEXT", nullable: true),
+                    Url = table.Column<string>(type: "TEXT", nullable: true),
                     IsApproved = table.Column<bool>(type: "INTEGER", nullable: false),
-                    IsHome = table.Column<bool>(type: "INTEGER", nullable: false),
-                    Url = table.Column<string>(type: "TEXT", nullable: true)
+                    IsHome = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

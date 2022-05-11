@@ -1,0 +1,36 @@
+﻿@model List<Product>
+
+    <div class="row">
+        <div class="col-md-3">
+
+
+         @await Component.InvokeAsync("Categories")
+            
+        </div>
+
+
+        <div class="col-md-9">
+
+            <div class="row">
+
+                @foreach (var product in Model)
+                {
+                    <div class="col-md-3">
+                        <partial name="_Product" model="product" />
+
+
+                    </div>
+
+                }
+
+            </div>
+
+            @* buraya sayfalamayla ile ilgili kodlar gelecek  *@
+
+
+        </div>
+
+
+
+
+    </div>
