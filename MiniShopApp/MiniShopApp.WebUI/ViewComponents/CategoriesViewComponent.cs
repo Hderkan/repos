@@ -20,7 +20,6 @@ namespace MiniShopApp.WebUI.ViewComponents
             {
                 ViewBag.SelectedCategory = RouteData.Values["category"];
             }
-
             return View(_categoryService.GetAll());
         }
     }

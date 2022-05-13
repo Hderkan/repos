@@ -9,8 +9,8 @@ using MiniShopApp.Data.Concrete.EfCore;
 namespace MiniShopApp.Data.Migrations
 {
     [DbContext(typeof(MiniShopContext))]
-    [Migration("20220511062452_mig24")]
-    partial class mig24
+    [Migration("20220513073213_mig65")]
+    partial class mig65
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
