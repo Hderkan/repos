@@ -12,9 +12,6 @@ namespace MiniShopApp.WebUI.Controllers
     public class MiniShopController : Controller
     {
         private IProductService _productService;
-
-        public PageInfo PageInfo { get; private set; }
-
         public MiniShopController(IProductService productService)
         {
             _productService=productService;
@@ -26,35 +23,29 @@ namespace MiniShopApp.WebUI.Controllers
 
         public IActionResult List(string category, int page=1)
         {
+            ViewBag.Message = "Ürün bulunamadı";
+            ViewBag.AlertType = "warning";
+            //ÖDEV:
+            //Bu işi ister model kullanarak şu an olduğu gibi partial yapıyla
+            //İsterseniz ise daha farklı bir yol olarak ViewComponent mantığıyla
+            //Çözün.
 
+            //***********************************
 
-
-            const int PageSize = 3;
-
-            int totalItems
-                     = _productService.GetCountByCategory(category);
-
+            const int pageSize = 5;//bu değişken her sayfada kaç item görüneceğini tutacak
+            int totalItems = _productService.GetCountByCategory(category);
             var productListViewModel = new ProductListViewModel()
             {
-
-
                 PageInfo = new PageInfo
                 {
-                    TotalItems=totalItems,
+                    TotalItems= totalItems,
                     CurrentPage= page,
-                    ItemsPerPage = PageSize,
+                    ItemsPerPage= pageSize,
                     CurrentCategory = category
-
-
-
                 },
-                Products = _productService.GetProductsByCategory(category)
-
+                Products= _productService.GetProductsByCategory(category, page, pageSize)
             };
-
-
-
-            return View();
+            return View(productListViewModel); 
         }
 
         public IActionResult Details(string url)
@@ -68,8 +59,6 @@ namespace MiniShopApp.WebUI.Controllers
             {
                 return NotFound();
             }
-
-        
             ProductDetailModel productDetail = new ProductDetailModel()
             {
                 Product = product,

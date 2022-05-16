@@ -15,10 +15,3 @@ namespace MiniShopApp.Entity
         public List<ProductCategory> ProductCategories { get; set; }
     }
 }
-
-
-
-
-
-
-//view bag ?
