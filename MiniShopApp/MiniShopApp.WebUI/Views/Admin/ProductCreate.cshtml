@@ -1,0 +1,124 @@
+﻿@model ProductModel
+
+<h5 class="display-4">Create product</h5>
+
+<hr />
+
+<form asp-controller="Admin" asp-action="ProductCreate" method="post">
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="form-group row mb-2 ">
+                <label class="col-form-label col-sm-3"> name</label>
+                <div class="col-sm-9">
+                    <input type="text" asp-for="Name" />
+
+
+
+
+                </div>
+
+            </div>
+            <div class="form-group row mb-2 ">
+                <label class="col-form-label col-sm-3"> url</label>
+                <div class="col-sm-9">
+                    <input type="text" asp-for="Url" />
+
+
+
+
+                </div>
+
+            </div>
+            <div class="form-group row mb-2 ">
+                <label class="col-form-label col-sm-3"> description</label>
+                <div class="col-sm-9">
+                    <input type="text" asp-for="Description" />
+
+
+
+
+                </div>
+
+            </div>
+            <div class="form-group row mb-2 ">
+                <label class="col-form-label col-sm-3"> imgurl</label>
+                <div class="col-sm-9">
+                    <input type="text" asp-for="ImageUrl" />
+
+
+
+
+                </div>
+
+            </div>
+            <div class="form-group row mb-2 ">
+                <label class="col-form-label col-sm-3"> price</label>
+                <div class="col-sm-9">
+                    <input type="text" asp-for="Price" />
+
+
+
+
+                </div>
+
+            </div>
+
+            <div class="form-group row mb-2 ">
+                <div class="col-sm-9">
+
+                        <button class="btn btn-primary" type="submit">Save Product</button>
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="col-md-4">
+            @foreach (var item in (List<Category>)ViewBag.Categories)
+            {
+                <div class="form-check">
+
+
+                    <input type="checkbox" class="form-check-input" />
+                </div>
+
+
+
+
+                <div class="form-check">
+
+
+                    <input type="checkbox" class="form-check-input" value="@item.CategoryId" name="categoryIds" id="category_@item.CategoryId" />
+
+
+
+                    <label class="form-check-label">@item.Name</label>
+
+                </div>
+
+            }
+            <hr />
+
+            <div class="form-check">
+
+
+                <input type="checkbox" class="form-check-input" value="@item.CategoryId" name="categoryIds" id="category_@item.CategoryId" />
+
+
+
+                <label class="form-check-label">@item.Name</label>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</form>
+
